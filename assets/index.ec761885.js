@@ -1,4 +1,4 @@
-import{s as a,a as r}from"./index.d94b5ddd.js";const e=a.div`
+import{s as a,a as r}from"./index.2eed4db1.js";const e=a.div`
  .content{
     margin: 1rem  auto auto auto;
     width: 16rem;
