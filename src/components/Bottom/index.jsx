@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link,useLocation} from "react-router-dom"
+import {NavLink,useLocation} from "react-router-dom"
 import {Wrapper } from "./style.js"
 import classnames from "classnames"
 
@@ -8,21 +8,21 @@ export default function Bottom() {
   return (
     <Wrapper>
     <div className='video_bottom'>
-    <Link to="/home" className={classnames({active:pathname=="/home"||pathname=="/"})}>
+    <NavLink to="/home" className={classnames({active:pathname=="/home"||pathname=="/"})}>
     <span>首页</span>
-    </Link>
-    <Link to="/friend" className={classnames({active:pathname=="/friend"})}>
+    </NavLink>
+    <NavLink to="/friend" className={classnames({active:pathname=="/friend"})}>
     <span>朋友</span>
-    </Link>
-    <Link to="/video" className={classnames({active:pathname=="/video"||pathname=="/"})}>
+    </NavLink>
+    <NavLink to="/video" className={classnames({active:pathname=="/video"||pathname=="/"})}>
     <i className='fa fa-plus'></i>
-    </Link>
-    <Link to="/message" className={classnames({active:pathname=="/message"})}>
+    </NavLink>
+    <NavLink to="/message" className={classnames({active:pathname=="/message"})}>
     <span>消息</span>
-    </Link>
-    <Link to="/mine" className={classnames({active:pathname=="/mine"})}>
+    </NavLink>
+    <NavLink to="/mine" className={classnames({active:pathname=="/mine"})}>
     <span>我</span>
-    </Link>
+    </NavLink>
     </div>
     </Wrapper>
   )

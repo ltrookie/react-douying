@@ -5,7 +5,7 @@ import {Link,useLocation,Outlet} from "react-router-dom"
 import classnames from "classnames"
 import {ScanningOutline } from 'antd-mobile-icons'
 import SearchRankNav from '@/components/SearchRankNav'
-import DouyinRank from './DouyinRank'
+import DouyinRank from './DouyinRank' 
 
 export default function Search() {
   const pathname=useLocation();
