@@ -1,0 +1,70 @@
+.videofooter{
+    position: relative;
+    bottom:7.5rem;
+    margin-left: 1rem;
+    color: #cfd5d7;
+    display: flex;
+}
+.videofotter_text{
+    flex:1
+}
+.videofotter_text >h3{
+   padding-bottom: 0.5rem;
+   color: #f2f2f2;
+
+      
+}
+.videofotter_text_intruduce{
+    height: fit-content;
+    padding-bottom: 0.5rem;
+    width: 60%;
+}
+.videofotter_text  i{
+    position: absolute;
+
+}
+ .videofotter_text_music{
+    height: fit-content;
+    margin-left: 1rem;
+    width: 60%;
+   
+}
+.musicCd{
+    position: absolute;
+    bottom: 0;
+    right:0.5rem;
+    width:3rem;
+    height: 3rem;
+    /*定义动画效果，对应的"infinite",动画无限次播放，对应的"linear",动画从头到尾的速度是相同的。*/
+    animation: musicPicture 10s infinite linear;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #363636;
+    /*重复径向渐变 从中心开始沿着四周产生渐变效果，模拟出唱片那种感觉，不喜欢可以注释或删掉*/
+    background: repeating-radial-gradient(#111 0%, #000 5%);
+}
+.musicPicture{
+    width:2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    border-radius: 100%;
+    /* background-color: red; */
+    /*看不出旋转效果，所以使用图片*/
+    /* background-image: url('@/assets/image/微信图片_20220630135834.jpg'); */
+    background-size: cover;
+}
+@keyframes musicPicture{
+    0%{
+        /*transform对元素进行旋转、缩放、移动或倾斜。以下就是旋转0度。*/
+        transform: rotate(0deg);
+    }
+    100%{
+        /*以下就是旋转360度*/
+        transform: rotate(360deg);
+    }
+}

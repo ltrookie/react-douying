@@ -1,0 +1,11 @@
+.app_videos{
+    position: relative;
+    width: 100%;
+    height: 800px;
+    overflow: scroll;
+    max-width: 500x;
+    scroll-snap-type: y mandatory;
+  }
+  .app_videos::-webkit-scrollbar{
+    display: none;
+  }
