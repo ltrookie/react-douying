@@ -24,7 +24,7 @@ export const Wrapper = styled.div`
         {
             content: "";
             /* background-color: rgb(35, 149, 255); */
-            background-color: black;
+            background-color: red;
             width:2rem;
             height: 0.03rem;
             position: absolute;
@@ -34,9 +34,13 @@ export const Wrapper = styled.div`
             margin-left: auto;
             margin-right: auto;
             /* color: #e23d43; */
-             color: black;
+             color: red;
+            
         }
-        
+        &.active{
+            font-weight: bold;
+            color:red;
+        }
     }
 }
 `
