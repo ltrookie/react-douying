@@ -3,6 +3,7 @@ import './style.css'
 import { Image} from 'antd-mobile'
 
 
+
 function VideoFooter({user,description,song,cd}) {
   return (
     

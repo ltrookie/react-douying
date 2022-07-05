@@ -3,7 +3,8 @@ import './style.css'
 import Video from '../Home/Video'
 import Header from '../../components/Header';
 import Bottom from '../../components/Bottom';
-import videos_three from "@/assets/video/3.mp4";
+import videos_five from "@/assets/video/3.mp4";
+import user_two from "@/assets/image/wang.jpg"
 import { getVideos } from '@/api/request'
 // import { useEffect, useState } from 'react'
 
@@ -22,7 +23,7 @@ return vid.map(item => {
     <div key={item.id} >
         <Header/>
        <div  className="app_videos">
-         <Video videos={videos_three}
+         <Video videos={videos_five}
           user={item.user}
           description={item.description}
           song={item.song}
@@ -30,8 +31,8 @@ return vid.map(item => {
           comments={item.comments}
           collects= {item.collects}
           share={item.share}
-          users={item.users}
-          cd={item.cd}
+          users={user_two}
+          cd={user_two}
           /> 
         
        {/* <Video videos={videos_five}

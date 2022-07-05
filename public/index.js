@@ -1,4 +1,5 @@
 var init = function () {
+    //获得移动端宽度
     var clientWidth = document.documentElement.clientWidth || document.body.clientWidth;
      if (clientWidth >= 640) {
      clientWidth = 640;

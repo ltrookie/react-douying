@@ -2,30 +2,25 @@ import styled from 'styled-components'
 
 export const Wrapper = styled.div`
     .content{
-       margin: 1rem  auto auto auto;
-       width: 16rem;
+       margin: 0.5rem  auto auto auto;
+       width: 17rem;
        height: 40rem;
-       border-radius: 1rem;
+       border-radius: 0.3rem;
        background-color: #fff4f2;
      border-bottom: 1px solid #f7f7f7;
       .text{ 
       display: flex;
-      margin-top: 1rem;
       flex-wrap: wrap;
 
      ol{
-      /* display: flex; */
-      /* margin-top: 1rem; */
-      /* border-bottom: 1px solid #f7f7f7; */
       flex-wrap: wrap;
-      li{
-         
+      li{         
          height:2rem;
          padding: 1rem 2rem ;
         a{   
         position: relative;
-         font-size: medium;
-         font-weight: 520;
+         font-size: 0.8rem;
+         font-weight: 550;
          color: black;
          .hot{
           position: absolute;
@@ -33,7 +28,7 @@ export const Wrapper = styled.div`
           height: 0.7rem;
           background-color:#fa2a60;
           font-size: 0.5rem;
-          left:10rem;
+          left:11.5rem;
           top:0.1rem;
           color: white;
           text-align: center;
@@ -45,7 +40,7 @@ export const Wrapper = styled.div`
           height: 0.7rem;
           background-color: purple;
           font-size: 0.5rem;
-          left:10rem;
+          left:11.5rem;
           top:0.1rem;
           color:white ;
           text-align: center;
@@ -53,9 +48,10 @@ export const Wrapper = styled.div`
         }
         p{
         position: relative;
-        left:11rem;
+        left:12.5rem;
         top:-0.9rem;
-        font-size:0.5rem
+        font-size:0.1rem;
+        color: #756969;
        
       }
       }

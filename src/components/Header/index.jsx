@@ -11,16 +11,16 @@ export default function Header() {
     <NavLink to="/home" className={classnames({active:pathname=="/home"||pathname=="/"})}>
     <i className='iconfont icon-addto' ></i>
     </NavLink>
-    <NavLink to="/." className={classnames({active:pathname=="/"})}>
+    <NavLink to="/." className={classnames({active:pathname=="/."})}>
     <span>蛟桥镇</span>
     </NavLink>
-    <NavLink to="/." className={classnames({active:pathname=="/home"})}>
+    <NavLink to="/guanzhu" className={classnames({active:pathname=="/home"})}>
     <span>关注</span>
     </NavLink>
     <NavLink to="/." className={classnames({active:pathname=="/home"})}>
     <span>商城</span>
     </NavLink>
-    <NavLink to="/home" className={classnames({active:pathname=="/home"})}>
+    <NavLink to="/" className={classnames({active:pathname=="/home"||pathname=="/"})}>
     <span>推荐</span>
     </NavLink>
     <NavLink to="/search" className={classnames({active:pathname=="/search"})}>

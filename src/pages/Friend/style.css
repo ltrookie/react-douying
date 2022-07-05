@@ -3,7 +3,7 @@
     width: 100%;
     height:36rem;
     overflow: scroll;
-    max-width: 500x;
+    max-width: 25rem;
     scroll-snap-type: y mandatory;
   }
   .app_videos::-webkit-scrollbar{

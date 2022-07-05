@@ -2,10 +2,9 @@ import { lazy } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Friend from '../pages/Friend'
 import Home from '../pages/Home'
-import Message from '../pages/Message'
-import Video from '../pages/Home/Video'  
-import Search from '../pages/Search'
+const Search = lazy(() => import('../pages/Search'))  
 const Mine = lazy(() => import('../pages/Mine'))  
+const Message = lazy(() => import('../pages/Message'))  
 const DouyinRank = lazy(() => import('../pages/Search/DouyinRank'))  
 const KangyiRank = lazy(() => import('../pages/Search/KangyiRank'))
 const PingpaiRank = lazy(() => import('../pages/Search/ZhiboRank'))

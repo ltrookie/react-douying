@@ -1,8 +1,6 @@
 import { useState,Suspense } from 'react'
 import './App.css'
 import RoutesConfig from './routes/index'
-// import Bottom from '@/components/Botton'
-// import Header from './pages/Home/Header'
 
 
 function App() {

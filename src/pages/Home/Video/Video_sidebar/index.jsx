@@ -3,14 +3,11 @@ import './style.css'
 import { Popup, Space ,Image} from 'antd-mobile'
 
 
-// const users="@/assets/image/微信图片_20220630135834.jpg"
-
 function Video_sidebar({hearts,comments,collects,share,users}) {
     const [liked,setLiked]=useState(false)
     const [shoucang,setShoucang]=useState(false)
     const [visible1, setVisible1] = useState(false)
     const [visible2, setVisible2] = useState(false)
-    // const collect=Integer.parseInt(collects);
   
   return (
     <div className='video_sidebar'>
@@ -31,7 +28,7 @@ function Video_sidebar({hearts,comments,collects,share,users}) {
             <i className='iconfont icon-aixin1'  onClick={(e=>setLiked(true))}></i>                 
            )} 
                
-            <p>{liked?hearts+1:hearts}</p>
+            <p>{hearts}</p>
         </div>
         <div className="video_sidebar_button">
         <Space direction='vertica2'>
@@ -54,7 +51,7 @@ function Video_sidebar({hearts,comments,collects,share,users}) {
            <div className="comments">
             <div className="comments_header">  
             <h3>大家都在搜：火锅英雄</h3>
-               <p>0 条评论</p>
+               <p>{comments} 条评论</p>
             </div>
            
            <div className="comments_bottom">
@@ -74,7 +71,7 @@ function Video_sidebar({hearts,comments,collects,share,users}) {
             <i className='iconfont icon-shoucang'  onClick={(e=>setShoucang(true))}></i>   
               
            )}          
-            <p>{shoucang? collects+ 1:collects}</p>
+            <p>{collects}</p>
         </div>
         <div className="video_sidebar_button">
              <Space direction='vertical'>
@@ -92,7 +89,7 @@ function Video_sidebar({hearts,comments,collects,share,users}) {
               }}
               bodyStyle={{ minHeight: '50vh' }}
             >
-              转发
+            分享给朋友
             </Popup>
           </Space>           
             <p>{share}</p>

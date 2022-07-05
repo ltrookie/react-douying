@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-// import propTyes from 'prop-types'
 import { NavLink } from 'react-router-dom'
 import Swiper from 'swiper'
 import { Wrapper } from './style'
