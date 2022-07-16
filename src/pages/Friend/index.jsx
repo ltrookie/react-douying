@@ -5,8 +5,8 @@ import videos_four from "@/assets/video/4.mp4";
 import videos_two from "@/assets/video/2.mp4"
 import user_three from "@/assets/image/dog.jpg"
 import user_four from "@/assets/image/军人.jpg"
-import Header from '../../components/Header';
-import Bottom from '../../components/Bottom';
+import Header from '../../components/Friend_header';
+import Bottom from '../../components/common/Bottom';
 
 export default function Friend() {
   return (
@@ -24,6 +24,8 @@ export default function Friend() {
         share="16.6万"
         users={user_four}
         cd={user_four}/>
+
+        
         <Video videos={videos_two}
          user="蛋蛋小柯基"
          description="歌会走调，但哥爱你 所以哥不会走掉#萌宠#治愈系#为修狗中的霸总心动了"

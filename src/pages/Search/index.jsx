@@ -1,27 +1,30 @@
-import React, { useEffect, useState } from 'react'
-import { Wrapper } from '../Search/style'
-import { SearchBar  } from 'antd-mobile'
-import {Link,useLocation,Outlet} from "react-router-dom"
-import classnames from "classnames"
-import {ScanningOutline } from 'antd-mobile-icons'
+import React, { useEffect, useState} from 'react'
+import { Wrapper ,
+         ShortcutWrapper
+} from '../Search/style'
+import {Outlet} from "react-router-dom"
 import SearchRankNav from '@/components/SearchRankNav'
-import { getSearch } from '@/api/request'
+import { getSearchList }  from './store/actionCreators'
+import { connect } from 'react-redux'
+import SearchBox from "../../components/common/search_box"
 
 
-export default function Search() {
-    const [search,setSearch]=useState([]);
+const  Search =(props)=> {
+
     const [refresh,setRefresh]=useState(0);
-    useEffect(()=>{
-      (async () => {
-        let { data:searchdata} = await getSearch()
-        setSearch(searchdata)
-    
-    })()
+    const[query,setQuery]=useState('')   
+    const { searchLists } = props
+    const {getSearchlistDispatch} =props
 
-    })
-    
+   
+
+    useEffect(()=>{
+      getSearchlistDispatch()
+    },[])
+
     const Onrefresh = ()=>{
-      if(refresh<=search.length-6&&refresh>=0){
+      console.log(refresh);
+      if(refresh<searchLists.length-6 && refresh>=0){
         
        setRefresh(refresh+6);
        }
@@ -29,13 +32,25 @@ export default function Search() {
         setRefresh(refresh-6)
        }
       }
-  const pathname=useLocation();
+
+  //  console.log(query,"00000000");
+  const handleQuery = (q) => {
+    // console.log(q)
+    setQuery(q)
+}
 
   const renderBtnsearchPage1=()=>{
-   const items= search.splice(refresh,refresh+6)
+  //  console.log(searchLists,"***********");
+   
+   const items= searchLists.slice(refresh,refresh+6);
+  //  console.log(items,"+++++++++++++++++++");
     return items.map(item=>{
         return (
-          <a href=""  key={item.id}>
+          <a    
+               key={item.id} 
+               onClick={() => setQuery(item.text)}
+          >
+
             <p>{item.text}</p>
             </a>
         )
@@ -46,43 +61,71 @@ export default function Search() {
 
   return (
     <Wrapper>
-      <div className="header">
+      {/* <div className="header">
       <div className="headersearch">
       <Link to="/home" className={classnames({active:pathname=="/home"||pathname=="/"})}>
         <i className='fa fa-angle-left fa-3x'></i>
         </Link>
           <SearchBar placeholder='请输入内容'
                      style={{'--height':'2rem', '--padding-left':'0.5rem','--width':'13.5rem',}} 
+                     ref={queryRef}
+                     onChange={handleChange}
            />
            <div className="icon">
           <ScanningOutline fontSize={24}/>
           </div>
-        <h3 >搜索</h3>
+        <h3>搜索</h3>
       </div>
-    <div className="search_history">
+    
+    </div> */}
+    <SearchBox 
+     newQuery={query}
+     handleQuery={handleQuery}> 
+     </SearchBox>
+      <ShortcutWrapper show={!query}>
+        <div className="search_history">
 
-    </div>
-    </div>
+        </div>
       <div className="huanghuang">
         <h3>猜你想搜</h3>
-        <i class="fa fa-refresh"></i>
-        <h4 onClick={Onrefresh}>换一换</h4>
+        <i className="fa fa-refresh"></i>
+        <h4 
+        onClick={Onrefresh}
+        >换一换</h4>
         <div className="wantsearch">
    
-        {renderBtnsearchPage1()}
-          {/* <a href="" className='first'><p>没有劳务合同怎么...</p></a>
-          <a href=""><p>12333是什么电话</p></a>
-          <a href=""><p>七一建党</p></a>
-          <a href=""><p>周杰伦</p></a>
-          <a href=""><p>周杰伦</p></a>
-          <a href=""><p>周杰伦</p></a> */}
-     
+          {renderBtnsearchPage1()}
+         
+        
       </div>
       </div>
      
       <SearchRankNav/>
       <Outlet/>
-      
+      </ShortcutWrapper>
+      <ShortcutWrapper>
+       
+      </ShortcutWrapper>
     </Wrapper>
+    
+
+   
   )
 }
+
+const mapStateToProps =(state)=>{
+    return {
+      searchLists:state.search.searchLists,
+      
+    }
+}
+
+const mapDispatchToProps=(dispatch)=>{
+  return {
+         getSearchlistDispatch(){
+            dispatch(getSearchList())
+         }}
+}
+
+export default connect(mapStateToProps, 
+  mapDispatchToProps)(Search)

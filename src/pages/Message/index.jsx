@@ -1,5 +1,5 @@
 import React from 'react'
-import Bottom from '../../components/Bottom'
+import Bottom from '../../components/common/Bottom'
 import { Wrapper } from './style'
 
 export default function Message() {

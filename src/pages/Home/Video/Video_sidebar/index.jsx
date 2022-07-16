@@ -1,16 +1,21 @@
 import React, { useState } from 'react'
 import './style.css'
 import { Popup, Space ,Image} from 'antd-mobile'
+import Comments from '../../../../components/Comments'
+import {Link ,useParams} from "react-router-dom"
 
 
-function Video_sidebar({hearts,comments,collects,share,users}) {
+
+function Video_sidebar({hearts,comments,collects,share,users,id}) {
     const [liked,setLiked]=useState(false)
     const [shoucang,setShoucang]=useState(false)
     const [visible1, setVisible1] = useState(false)
-    const [visible2, setVisible2] = useState(false)
+    // const [visible2, setVisible2] = useState(false)
+    
   
   return (
-    <div className='video_sidebar'>
+    <div className='video_sidebar' key={id}>
+      <Link to={`/userdetail/${id}`}>
         <div className="video_sidebar_button">
             <Image src={users} 
                     width={60} 
@@ -21,6 +26,7 @@ function Video_sidebar({hearts,comments,collects,share,users}) {
             </Image>
            
         </div>
+        </Link>
         <div className="video_sidebar_button">
             {liked?(<div className="heart">
             <i className='iconfont icon-aixin1' onClick={(e=>setLiked(false))}></i>
@@ -31,38 +37,7 @@ function Video_sidebar({hearts,comments,collects,share,users}) {
             <p>{hearts}</p>
         </div>
         <div className="video_sidebar_button">
-        <Space direction='vertica2'>
-            <i
-              onClick={() => {
-                setVisible2(true)
-              }}
-            className='iconfont icon-xiaoxi'
-            >
-            </i>
-            <Popup
-              visible={visible2}
-              onMaskClick={() => {
-                setVisible2(false)
-              }}
-              bodyStyle={{ minHeight: '70vh' }}
-              className="commentbody"
-
-            >
-           <div className="comments">
-            <div className="comments_header">  
-            <h3>大家都在搜：火锅英雄</h3>
-               <p>{comments} 条评论</p>
-            </div>
-           
-           <div className="comments_bottom">
-            <input className="search_input" placeholder="善语结善缘，恶语伤人心~">
-
-            </input>
-           </div>
-           </div>
-            </Popup>
-          </Space>
-            <p>{comments}</p>
+       <Comments comments={comments}/>
         </div>
         <div className="video_sidebar_button">
         {shoucang?(<div className="shoucang">
@@ -71,7 +46,7 @@ function Video_sidebar({hearts,comments,collects,share,users}) {
             <i className='iconfont icon-shoucang'  onClick={(e=>setShoucang(true))}></i>   
               
            )}          
-            <p>{collects}</p>
+            <p>{shoucang?collects+1:collects}</p>
         </div>
         <div className="video_sidebar_button">
              <Space direction='vertical'>

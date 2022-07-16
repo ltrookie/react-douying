@@ -3,7 +3,7 @@ import { Wrapper } from './style.js'
 import VideoFooter from './Video_footer'
 import Video_sidebar from './Video_sidebar'
 
-export default function Video({ videos, user, description, song, hearts, comments, collects, share, users, cd }) {
+export default function Video({ videos, user, description, song, hearts, comments, collects, share, users, cd ,id}) {
     const videoRef = useRef(null)
     const [play, setPlay] = useState(false)
     const onVideo = () => {
@@ -40,7 +40,8 @@ export default function Video({ videos, user, description, song, hearts, comment
                     comments={comments}
                     collects={collects}
                     share={share}
-                    users={users} />
+                    users={users}
+                    id={id} />
 
             </div>
 

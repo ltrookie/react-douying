@@ -1,39 +1,11 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.div`
-.header{
-    margin-top: 0.5rem;
-  .headersearch {
-    /* display: flex; */
-    position: relative;
-    width: 13.5rem;
-    height: 2rem;
-    margin-left: 2.5rem;
-    margin-right: 2rem;
-    i{
-      position: absolute;
-      top:-0.1rem;
-      left: -2rem;
-    }
-    h3{
-    position: absolute;
-    top:0.3rem;
-    right: -2rem;
-    color: red;
-   }
-  .icon{
-    position: absolute;
-    top:0.4rem;
-    right: 0.2rem;
-  }
-  }
-  .search_history{
+
+.search_history{
     height: 5rem;
     border-bottom: 1px solid #f7f7f7;
   } 
-  
- 
-}
 .huanghuang{
     position: relative;
     margin-top: 0.25rem;
@@ -76,6 +48,7 @@ export const Wrapper = styled.div`
         padding-left: 1rem;
         font-weight: 550;
         
+        
      }
     
       }
@@ -91,4 +64,10 @@ export const Wrapper = styled.div`
  
 
 `
-
+export const ShortcutWrapper = styled.div`
+    position: absolute;
+    top: 2rem;
+    bottom: 0;
+    width: 100%;
+    display: ${props => props.show ? "" : "none"};
+`

@@ -1,56 +1,77 @@
-import React ,{useEffect,useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import './style.css'
 import Video from '../Home/Video'
-import Header from '../../components/Header';
-import Bottom from '../../components/Bottom';
+import Header from '../../components/Home_header';
+import Bottom from '../../components/common/Bottom';
 import videos_five from "@/assets/video/3.mp4";
 import user_two from "@/assets/image/wang.jpg"
-import { getVideos } from '@/api/request'
+import { getVideosList } from './store/actionCreators'
+import { connect } from 'react-redux'
+
+
 // import { useEffect, useState } from 'react'
 
-function Home() {
-  const [vid, setVideos] = useState([])
-  useEffect(() => {
-    (async () => {
-        let { data:videosData } = await getVideos()
-        setVideos(videosData)
-    
-    })()
-})
+function Home(props) {
 
-return vid.map(item => {
+
+  const { videosList } = props
+  const { getVideosListDispatch } = props
+
+  useEffect(() => {
+    getVideosListDispatch()
+  }, [])
+
   return (
-    <div key={item.id} >
-        <Header/>
-       <div  className="app_videos">
-         <Video videos={videos_five}
-          user={item.user}
-          description={item.description}
-          song={item.song}
-          hearts={item.hearts}
-          comments={item.comments}
-          collects= {item.collects}
-          share={item.share}
-          users={user_two}
-          cd={user_two}
-          /> 
-        
-       {/* <Video videos={videos_five}
-         user="LAU"
-         description="生活喜欢勇敢的人"
-         song="悬溺_葛东琪-葛东琪创作的原声"
-         hearts="26.8万"
-         comments="2.7万"
-         collects="6618"
-         share="9745" 
-         users={user_two}
-         cd={user_two}/> 
-     */}
-        </div> 
-        <Bottom/>
-           
+
+    <div >
+      <Header />
+      <div className="app_videos" >
+        {
+          videosList.map(item => {
+            return (
+
+              <Video
+                key={item.id}
+                videos={videos_five}
+                user={item.user}
+                description={item.description}
+                song={item.song}
+                hearts={item.hearts}
+                comments={item.comments}
+                collects={item.collects}
+                share={item.share}
+                users={item.headpho}
+                cd={item.headpho}
+                id={item.id}
+              />
+            )
+          })
+
+        }
+      </div>
+
+
+
+      <Bottom />
+
     </div>
   )
+
 }
-)}
-export default Home
+
+const mapStateToProps = (state) => {
+  return {
+    videosList: state.videos.videosList
+
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getVideosListDispatch() {
+      dispatch(getVideosList())
+    }
+
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Home)

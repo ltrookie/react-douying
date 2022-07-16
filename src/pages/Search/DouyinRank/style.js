@@ -52,6 +52,7 @@ export const Wrapper = styled.div`
         top:-0.9rem;
         font-size:0.1rem;
         color: #756969;
+        width: 2rem
        
       }
       }

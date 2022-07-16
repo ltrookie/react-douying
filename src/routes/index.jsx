@@ -5,6 +5,7 @@ import Home from '../pages/Home'
 const Search = lazy(() => import('../pages/Search'))  
 const Mine = lazy(() => import('../pages/Mine'))  
 const Message = lazy(() => import('../pages/Message'))  
+const UserDetail= lazy(() => import('../pages/UserDetail'))  
 const DouyinRank = lazy(() => import('../pages/Search/DouyinRank'))  
 const KangyiRank = lazy(() => import('../pages/Search/KangyiRank'))
 const PingpaiRank = lazy(() => import('../pages/Search/ZhiboRank'))
@@ -19,6 +20,7 @@ const RoutesConfig=()=>(
         <Route path='/mine' element={<Mine/>}></Route>
         <Route path='/friend' element={<Friend/>}></Route>
         <Route path='/message' element={<Message/>}></Route>
+        <Route path='/userdetail/:id' element={<UserDetail/>}></Route>
         <Route path='/search' element={<Search/>}>
                 <Route path="/search" element={<DouyinRank/>}/>
                 <Route path="/search/douyinrank" element={<DouyinRank/>}/>
