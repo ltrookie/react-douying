@@ -1,7 +1,7 @@
 import { lazy } from 'react'
 import { Routes, Route } from 'react-router-dom'
-import Friend from '../pages/Friend'
 import Home from '../pages/Home'
+const  Friend = lazy(() => import('../pages/Friend'))  
 const Search = lazy(() => import('../pages/Search'))  
 const Mine = lazy(() => import('../pages/Mine'))  
 const Message = lazy(() => import('../pages/Message'))  

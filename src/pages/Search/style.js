@@ -4,11 +4,43 @@ export const Wrapper = styled.div`
 
 .search_history{
     height: 5rem;
-    border-bottom: 1px solid #f7f7f7;
+    border-bottom: 1px solid #dddddf;
+    /* display: none; */
+    .history_text{
+
+      ul{
+        margin-top: 1.5rem;
+        li{
+          position: relative;
+        display: flex;
+        margin-top: 0.8rem;
+        align-items: center;
+        
+        .ClockCircleOutline {
+          margin-left: 0.5rem;
+        }
+        .CloseOutline{
+         position: absolute;
+         right: 0.5rem;
+        }
+        p{
+          margin-left: 1rem;
+          margin-top: 1px;
+          font-size: 0.75rem;
+          /* font-weight: 550; */
+          color: #000000;
+        }
+      }
+    }
+      
+    }
+    p{   margin-top: 0.8rem;
+         text-align: center;
+      }
   } 
 .huanghuang{
     position: relative;
-    margin-top: 0.25rem;
+    margin-top: 0.5rem;
     h3{
         position: absolute;
         top:0.5rem;
@@ -31,7 +63,7 @@ export const Wrapper = styled.div`
      .wantsearch{
       display: flex;
       margin-top: 1rem;
-      border-bottom: 1px solid #f7f7f7;
+      border-bottom: 1px solid #dddddf;
       flex-wrap: wrap;
       
      a{

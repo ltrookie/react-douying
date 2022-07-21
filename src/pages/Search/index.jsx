@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from 'react'
+import React, { useEffect, useState,memo} from 'react'
 import { Wrapper ,
          ShortcutWrapper
 } from '../Search/style'
@@ -6,6 +6,7 @@ import {Outlet} from "react-router-dom"
 import SearchRankNav from '@/components/SearchRankNav'
 import { getSearchList }  from './store/actionCreators'
 import { connect } from 'react-redux'
+import {ClockCircleOutline,CloseOutline } from 'antd-mobile-icons'
 import SearchBox from "../../components/common/search_box"
 
 
@@ -84,7 +85,25 @@ const  Search =(props)=> {
      </SearchBox>
       <ShortcutWrapper show={!query}>
         <div className="search_history">
+        <div className="history_text">
+        <ul>
+            <li>
+            <ClockCircleOutline className='ClockCircleOutline'/>
+            <p>王彦霖</p>
+            <CloseOutline className='CloseOutline'/>
+            </li>
+            <li>
+            <ClockCircleOutline className='ClockCircleOutline'/>
+            <p>你不知道的JavaScript</p>
+            <CloseOutline className='CloseOutline'/>
+            </li>
+           
 
+
+        </ul>
+       
+        </div>
+        <p>全部搜索记录</p>
         </div>
       <div className="huanghuang">
         <h3>猜你想搜</h3>
@@ -128,4 +147,4 @@ const mapDispatchToProps=(dispatch)=>{
 }
 
 export default connect(mapStateToProps, 
-  mapDispatchToProps)(Search)
+  mapDispatchToProps)(memo(Search))

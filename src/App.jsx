@@ -1,27 +1,19 @@
-import { useState,Suspense } from 'react'
+import { useState,Suspense,memo} from 'react'
 import './App.css'
 import RoutesConfig from './routes/index'
 
-
 function App() {
-
-
   return (
     <div className="App">
 
        
-      {/* <Header/> */}
+     
       <Suspense fallback={<div>loading...</div>}>
         <RoutesConfig />
       </Suspense>
-      {/* <Footer/> */}
-      {/* <Bottom/> */}
-
-       
 
 
     </div>
   )
 }
-
-export default App
+export default memo(App)

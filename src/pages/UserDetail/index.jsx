@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect ,memo} from 'react'
 import {
   Wrapper,
   EnterLoading
@@ -10,12 +10,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import DetailvideoNav from '../../components/DetailvideoNav'
 import { getVideosList } from '../Home/store/actionCreators'
 import { connect } from 'react-redux'
-import { Empty, Tabs } from 'antd-mobile'
-
-
-
-
-
+import { Empty } from 'antd-mobile'
 
 function UserDetail(props) {
   let { id } = useParams();
@@ -28,12 +23,9 @@ function UserDetail(props) {
   const { videosList } = props
   const { getVideosListDispatch } = props
 
-
-
-
   useEffect(() => {
     setShow(true)
-
+    console.log("1111111");
     getVideosListDispatch()
 
   }, [])
@@ -47,7 +39,6 @@ function UserDetail(props) {
 
   )
  
-  console.log(res, "000000000000");
   useEffect(() => {
     console.log(res,"use");
     if (res.length == 0) {
@@ -154,8 +145,6 @@ function UserDetail(props) {
             )
           })
         }
-
-        {/* {enterloading && <EnterLoading><LoadingV2></LoadingV2></EnterLoading>}     */}
         {enterloading &&
           <Empty
             style={{ padding: '50% 0' }}
@@ -163,12 +152,7 @@ function UserDetail(props) {
             description='暂无数据'
           />
         }
-
-       
       </Wrapper>
-
-
-
     </CSSTransition>
 
 
@@ -190,4 +174,4 @@ const mapDispatchToProps = (dispatch) => {
 
   }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(UserDetail)
+export default connect(mapStateToProps, mapDispatchToProps)(memo(UserDetail))

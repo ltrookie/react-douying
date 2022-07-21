@@ -149,6 +149,48 @@ transform-origin: right bottom;
             
         
     }
+    .photo{
+    position: relative;
+    margin-top: 10%;
+    text-align: center;
+    /* .littlelock{
+        position: absolute;
+        top: -11rem;
+        right:0.5rem;
+     
+
+    } */
+    
+    .circle{
+        display: flex;
+        width: 3rem;
+        height: 3rem;
+        border-radius: 3rem;
+        background-color: #f3f3f3;
+        margin-bottom: 1rem;
+        align-items: center;
+        justify-content: space-around;
+        margin-left: 42%;
+
+    }
+    h3{
+        color: #000000;
+        font-weight: 550;
+    }
+    p{
+        margin-top: 0.5rem;
+    }
+   }
+   .shoucangempty{
+    margin-top: 10%;
+    text-align: center;
+    h4{
+        color: #000000;
+    }
+    p{
+        margin-top: 0.5rem;
+    }
+   }
     
 
 `

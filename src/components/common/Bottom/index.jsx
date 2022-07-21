@@ -17,9 +17,11 @@ export default function Bottom() {
     <NavLink to="/video" className={classnames({active:pathname=="/video"||pathname=="/"})}>
     <i className='fa fa-plus'></i>
     </NavLink>
-    <NavLink to="/message" className={classnames({active:pathname=="/message"})}>
-    <span>消息</span>
-    </NavLink>
+    {/* <NavLink to="/message" className={classnames({active:pathname=="/message"})}>
+
+
+    </NavLink> */}
+    <a><span onClick={()=>alert("用户中心正在开发中，敬请期待")}>消息</span></a>
     <NavLink to="/mine" className={classnames({active:pathname=="/mine"})}>
     <span>我</span>
     </NavLink>

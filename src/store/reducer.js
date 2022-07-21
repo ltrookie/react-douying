@@ -4,9 +4,11 @@ import { combineReducers } from "redux";
 // 地方
 import {reducer as searchReducer } from '@/pages/Search/store/index'
 import {reducer as videosReducer } from '../pages/Home/store/index'
+import {reducer as mylikelistsReducer} from '../pages/Mine/store/index'
 
 export default combineReducers({
     search:searchReducer,
-    videos:videosReducer
+    videos:videosReducer,
+    mylike:mylikelistsReducer
 })
 

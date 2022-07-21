@@ -6,6 +6,7 @@
     max-width: 25rem;
     scroll-snap-type: y mandatory;
     border: 1px solid black;
+    border:none;
   }
   .app_videos::-webkit-scrollbar{
     display: none;

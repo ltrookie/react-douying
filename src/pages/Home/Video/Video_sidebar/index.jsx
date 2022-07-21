@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,memo } from 'react'
 import './style.css'
 import { Popup, Space ,Image} from 'antd-mobile'
 import Comments from '../../../../components/Comments'
@@ -6,14 +6,25 @@ import {Link ,useParams} from "react-router-dom"
 
 
 
-function Video_sidebar({hearts,comments,collects,share,users,id}) {
-    const [liked,setLiked]=useState(false)
+function Video_sidebar(props) {
+ const {hearts,comments,collects,share,users,id,item,like,liked}=props
+ const {addLike=()=>{},
+        deleteLike=()=>{}
+  }=props
+    // const [liked,setLiked]=useState(false)
     const [shoucang,setShoucang]=useState(false)
     const [visible1, setVisible1] = useState(false)
     // const [visible2, setVisible2] = useState(false)
+    //  const addLike =()=>{
+    //   setLiked(false)
+    //  }
+    console.log(like,"like");
+ 
+
     
   
   return (
+    
     <div className='video_sidebar' key={id}>
       <Link to={`/userdetail/${id}`}>
         <div className="video_sidebar_button">
@@ -27,11 +38,15 @@ function Video_sidebar({hearts,comments,collects,share,users,id}) {
            
         </div>
         </Link>
-        <div className="video_sidebar_button">
-            {liked?(<div className="heart">
-            <i className='iconfont icon-aixin1' onClick={(e=>setLiked(false))}></i>
+        <div className="video_sidebar_button" >
+            {like.filter(item=> item.id==id).map((item)=>{return item.id}) == id? (
+            <div className="heart" >
+            <i className='iconfont icon-aixin1'  onClick={ deleteLike.bind(null,item) }></i>
              </div> ):(
-            <i className='iconfont icon-aixin1'  onClick={(e=>setLiked(true))}></i>                 
+            <i className='iconfont icon-aixin1' onClick={ addLike.bind(null,item)}
+             
+            //  setLiked(true)}
+              ></i>                 
            )} 
                
             <p>{hearts}</p>
@@ -43,7 +58,7 @@ function Video_sidebar({hearts,comments,collects,share,users,id}) {
         {shoucang?(<div className="shoucang">
             <i className='iconfont icon-shoucang' onClick={(e=>setShoucang(false))}></i>
              </div> ):(
-            <i className='iconfont icon-shoucang'  onClick={(e=>setShoucang(true))}></i>   
+            <i className='iconfont icon-shoucang '  onClick={(e=>setShoucang(true))}></i>   
               
            )}          
             <p>{shoucang?collects+1:collects}</p>
@@ -74,4 +89,4 @@ function Video_sidebar({hearts,comments,collects,share,users,id}) {
   )
 }
 
-export default Video_sidebar
+export default memo(Video_sidebar)

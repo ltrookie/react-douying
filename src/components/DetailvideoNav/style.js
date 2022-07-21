@@ -24,9 +24,10 @@ export const ShowplayerWrapper = styled.div`
             color: #fdfdfd;
             font-size: 0.5rem;
         }
-        img{
+        video{
             width: 100%;
             height: 100%;
+            object-fit: fill;
         }
     }
 }

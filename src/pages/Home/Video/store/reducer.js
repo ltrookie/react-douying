@@ -3,6 +3,7 @@ const defaultState ={
     videoList:[]
 }
 
+
 export default (state=defaultState,action)=>{
     switch(action.type){
         case actionTypes.CHANGE_VIDEOP_LIST:

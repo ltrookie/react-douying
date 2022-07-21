@@ -1,31 +1,33 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, memo } from 'react'
 import Bottom from '../../components/common/Bottom'
 import { Wrapper } from './style'
-import { Image,Tabs } from 'antd-mobile'
+import { Image, Tabs, Empty } from 'antd-mobile'
 import { CSSTransition } from 'react-transition-group'
 import { useNavigate } from 'react-router-dom';
-import DetailvideoNav from '../../components/DetailvideoNav'
-import { Outlet } from "react-router-dom"
+import { ShowplayerWrapper } from '../../components/DetailvideoNav/style'
+import { PictureOutline } from 'antd-mobile-icons'
 import { connect } from 'react-redux'
 
 
-
-
-
-
-
- function Mine() {
+function Mine(props) {
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
+  const [more, setmore] = useState(false)
+  const { mylikeLists } = props
 
 
-
+  console.log(mylikeLists, "mylikelist");
   useEffect(() => {
     setShow(true)
     // if (!hotList.length) {
     //     getHotKeywordsDispatch()
     // }
+    if (mylikeLists.length > 0) {
+      setmore(true)
+    }
   }, [])
+
+  console.log(mylikeLists);
 
 
   return (
@@ -88,31 +90,64 @@ import { connect } from 'react-redux'
               <button className='addfriend' >添加朋友</button>
             </div>
           </div>
-
-          {/* <DetailvideoNav /> */}
-          <Tabs activeLineMode="fixed"
-            style={{
-              color: "#78777d",
-              "--active-title-color": "#171723",
-              "--fixed-active-line-width": "33.333%",
-              "--active-line-color": "#171723",
-              "--content-padding": "0"
-            }} >
-            <Tabs.Tab title="作品" key='photo'>
-              <div className='playshow'>
+          <ShowplayerWrapper>
+            <Tabs activeLineMode="fixed"
+              style={{
+                color: "#78777d",
+                "--active-title-color": "#171723",
+                "--fixed-active-line-width": "33.333%",
+                "--active-line-color": "#171723",
+                "--content-padding": "0"
+              }} >
+              <Tabs.Tab title="作品" key='photo'>
+                {/* <div className='playshow'>
                 <div className="play"  >
-                  {/* <img src={item.img}></img> */}
-                  {/* <i className='iconfont icon-aixin'>0</i> */}
+                
                 </div>
-              </div>
-            </Tabs.Tab>
-            <Tabs.Tab title='收藏' key='collect'>
+              </div> */}
+                <div className="photo">
+                  <div className="circle">
+                    <PictureOutline fontSize={36} />
+                  </div>
+                  <h3>发一张你被点赞最多的照片</h3>
+                </div>
 
-            </Tabs.Tab>
-            <Tabs.Tab title='喜欢' key='like'>
-             
-           </Tabs.Tab>
-          </Tabs>
+              </Tabs.Tab>
+              <Tabs.Tab title='收藏' key='collect'>
+                <div className="shoucangempty">
+                  <Empty imageStyle={{ width: 150 }} />
+                  <h4>还没有收藏视频</h4>
+                  <p>用分组收藏，找到视频更方便</p>
+                </div>
+              </Tabs.Tab>
+              <Tabs.Tab title='喜欢' key='like'>
+                <div className='playshow'>
+                  {
+                    mylikeLists.map((item) => {
+                      // {setCount(4)}
+                      return (
+                        <div className="play" key={item.id} >
+                          <video src={item.video}></video>
+                          <i className='iconfont icon-aixin'>{item.hearts}</i>
+                        </div>
+                      )
+                    })
+                  }
+
+                </div>
+                {
+                  more ? <p>暂时没有更多了</p>
+                    : <div style={{ "marginTop": "10%" }}>
+                      <Empty
+                        imageStyle={{ width: 150 }}
+                        description="还没有点赞视频" />
+                      {/* <p>还没有点赞视频</p> */}
+                    </div>
+                }
+
+              </Tabs.Tab>
+            </Tabs>
+          </ShowplayerWrapper>
 
 
           <Bottom />
@@ -126,18 +161,23 @@ import { connect } from 'react-redux'
 
 const mapStateToProps = (state) => {
   return {
-    videosList: state.videos.videosList
+    videosList: state.videos.videosList,
+    mylikeLists: state.mylike.mylikeLists,
+    like: state.mylike.like
+
 
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    getVideosListDispatch() {
-      dispatch(getVideosList())
-    }
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     // getVideosListDispatch() {
+//     //   dispatch(getMylikeList())
+//     // }
 
-  }
-}
+//   }
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Mine)
+export default connect(mapStateToProps,
+  //  mapDispatchToProps
+)(memo(Mine))

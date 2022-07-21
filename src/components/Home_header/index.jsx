@@ -14,7 +14,7 @@ export default function Header() {
     <i className='iconfont icon-addto ' ></i>
     </NavLink>
     <NavLink to="/." className={classnames({active:pathname=="/."})}>
-    <span>蛟桥镇</span>
+    <span>同城</span>
     </NavLink>
     <NavLink to="/." className={classnames({active:pathname=="/home"})}>
     <span>关注</span>

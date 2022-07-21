@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{memo} from 'react'
 import './style.css'
 import { Image,NoticeBar} from 'antd-mobile'
 
@@ -35,4 +35,4 @@ function VideoFooter({user,description,song,cd}) {
   )
 }
 
-export default VideoFooter
+export default memo(VideoFooter)

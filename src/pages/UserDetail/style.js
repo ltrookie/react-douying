@@ -103,14 +103,14 @@ transform-origin: right bottom;
         .description{
             margin-top: 0.5rem;
             margin-left: 0.8rem;
-            font-size: 0.6rem;
+            font-size: 0.7rem;
             font-weight: 500;
             color: black;
         }
         p{
             margin-top: 0.2rem;
             margin-left: 0.8rem;
-            font-size: 0.6rem;
+            font-size: 0.7rem;
             color: #78787a;
 
         }

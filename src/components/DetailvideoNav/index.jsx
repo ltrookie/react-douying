@@ -37,8 +37,8 @@ import { useNavigate, useParams } from 'react-router-dom';
                                 return (
                                    
                                     <div className="play" key={item.id} >
-                                        <img src={item.img}></img>
-                                        <i className='iconfont icon-aixin'>{item.zan}</i>
+                                        <video src={item.img}></video>
+                                        <i className='iconfont icon-aixin'>{item.like}</i>
                                     </div>
                                    
                                 )

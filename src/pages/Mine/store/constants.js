@@ -1,1 +1,3 @@
 export const CHANGE_MYLIKE_LIST= 'CHANGE_MYLIKE_LIST'
+export const ADD_LIKE='ADD_LIKE'
+export const DELETE_LIKE='DELETE_LIKE'

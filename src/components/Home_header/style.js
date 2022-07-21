@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
 .video_header{
     /* position: absolute; */
     width: 100%;
-    height:2.5rem;
+    height:2.6rem;
     /* position: fixed;
     top: 0;
     left: 0; */
